@@ -15,6 +15,13 @@ import scala.concurrent.duration._
 
 object HttpClientSingleRequest {
   def main(args: Array[String]): Unit = {
+    /*
+    * Input: Gets the start_time & time delta as command line args (in that order)
+    *
+    * Connects to the lambda API on AWS
+    * Requests the logs between the start_time & time_delta as HTTP POST request
+    * Prints the results from the lambda
+    * */
     implicit val system = ActorSystem(Behaviors.empty, "SingleRequest")
     // needed for the future flatMap/onComplete in the end
     implicit val executionContext = system.executionContext
